@@ -11,6 +11,12 @@ let todos = [
 let collection = new TodoCollection("Lukasz", todos);
 
 console.clear();
-console.log(`Lista ${collection.userName}a`);
+console.log(
+  `Lista ${collection.userName}a` +
+    ` (liczba zadań pozostałych do zrobienia: ${
+      collection.getItemsCounts().incomplete
+    })`
+);
 
+collection.removeComplete();
 collection.getTodoItems(true).forEach((item) => item.printDetails());
