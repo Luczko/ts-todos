@@ -1,6 +1,7 @@
 import { TodoItem } from "./todoItem";
 import { TodoCollection } from "./todoCollection";
 import * as inquirer from "inquirer";
+import { JsonTodoCollection } from "./jsonTodoCollection";
 
 let todos = [
   new TodoItem(1, "Kupić kwiaty"),
@@ -9,7 +10,7 @@ let todos = [
   new TodoItem(4, "Zadzwonić do Janka", true),
 ];
 
-let collection = new TodoCollection("Lukasz", todos);
+let collection: TodoCollection = new JsonTodoCollection("Lukasz", todos);
 let showCompleted = true;
 
 function displayTodoList(): void {
@@ -69,7 +70,7 @@ function promptComplete(): void {
             completedTasks.find((id) => id === item.id) != undefined
           )
         );
-      promptUser;
+      promptUser();
     });
 }
 
